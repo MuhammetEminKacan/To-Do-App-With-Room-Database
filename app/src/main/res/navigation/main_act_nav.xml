@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_act_nav"
+    app:startDestination="@id/anaSayfaFragment">
+
+    <fragment
+        android:id="@+id/anaSayfaFragment"
+        android:name="com.emin.kacan.todolistapp.ui.fragment.AnaSayfaFragment"
+        android:label="fragment_ana_sayfa"
+        tools:layout="@layout/fragment_ana_sayfa" >
+        <action
+            android:id="@+id/not_eklemeye_gecis"
+            app:destination="@id/notEklemeFragment" />
+        <action
+            android:id="@+id/not_goruntulemeye_gecis"
+            app:destination="@id/notGoruntulemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notEklemeFragment"
+        android:name="com.emin.kacan.todolistapp.ui.fragment.NotEklemeFragment"
+        android:label="fragment_not_ekleme"
+        tools:layout="@layout/fragment_not_ekleme" >
+        <action
+            android:id="@+id/notEklemeSayfasindan_anaSayfaDonus"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notGoruntulemeFragment"
+        android:name="com.emin.kacan.todolistapp.ui.fragment.NotGoruntulemeFragment"
+        android:label="fragment_not_goruntuleme"
+        tools:layout="@layout/fragment_not_goruntuleme" >
+        <argument
+            android:name="Note"
+            app:argType="com.emin.kacan.todolistapp.model.Note" />
+        <action
+            android:id="@+id/notGoruntulemeSayfasindan_AnaSayfaDonus"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
+</navigation>
